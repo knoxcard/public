@@ -30,7 +30,6 @@ function prepareECC(params, pubkey, privkey) {
   params.timestamp = new Date().getTime() / 1000;
 
   var data = new Buffer(JSON.stringify(params)).toString('base64');
-
   var sign = new jscrypto.Signature({'alg':'SHA256withECDSA'});
   sign.init(privkey);
   sign.updateString(data);
